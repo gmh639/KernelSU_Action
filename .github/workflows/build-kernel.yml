@@ -296,11 +296,11 @@ jobs:
           cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
           git clone --recursive ${{ env.SUSFS_SOURCE }} -b ${{ env.SUSFS_SOURCE_BRANCH }} susfs4ksu --depth=1
 
-          cp susfs4ksu/kernel_patches/kernelsu/10_enable_susfs_for_ksu.patch Kernel_LGE_G820_R/kernelsu-Next/
-          cp susfs4ksu/kernel_patches/50_add_susfs_in_kernel-4.14.patch. Kernel_LGE_G820_R/
+          cp ./susfs/kernel_patches/kernelsu/10_enable_susfs_for_ksu.patch Kernel_LGE_G820_R/kernelsu-Next/
+          cp ./susfs/kernel_patches/50_add_susfs_in_kernel-4.14.patch. Kernel_LGE_G820_R/
 
-          cp susfs4ksu/kernel_patches/fs/* Kernel_LGE_G820_R/fs/
-          cp susfs4ksu/kernel_patches/include/linux/* Kernel_LGE_G820_R/include/linux/
+          cp ./susfs/kernel_patches/fs/* Kernel_LGE_G820_R/fs/
+          cp ./susfs/kernel_patches/include/linux/* Kernel_LGE_G820_R/include/linux/
 
           cd ${{ env.KERNELSU_TYPE }}
           patch -p1 < 10_enable_susfs_for_ksu.patch
